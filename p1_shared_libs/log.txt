@@ -1,0 +1,42 @@
+just compile a file
+
+    gcc -o hello.o -c hello.c
+    gcc -o main.o -c main.c
+
+link them
+
+    gcc -o hello hello.o main.o
+
+create shared library
+
+    gcc -o libHello.so -shared hello.c
+
+if error about -fPIC, add this flag (position independent code):
+    gcc -o libHello.so -shared -fPIC hello.c
+
+see exported/imported names in a shared library
+    nm libHello.so
+
+'T' is program text, our exported function
+
+help on nm command
+    man nm
+
+build hello using so:
+    gcc main.c -L . -lHello -o hello1
+
+here:
+    -L where to search libraries
+    . this catalog
+    -lHello means libHello.so
+
+ld dynamic linker should know about this shared library => set environment variable
+    export LD_LIBRARY_PATH=.
+    ./hello1  => works
+
+utility c++filt to show the original function names in C++
+    c++filt _Z13hello_messagePKc
+    => hello_message(char const*)
+
+see C++ names
+    nm -gC libHelloCpp.so

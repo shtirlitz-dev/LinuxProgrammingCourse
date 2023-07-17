@@ -54,4 +54,10 @@ what modules are used? (needs "export LD_LIBRARY_PATH=." too)
 flag to compile: -ldl (it was OK without it)
     gcc main_dyn.c -ldl -o maind
     
+by default, search shared libraries in the current directory
+(options for linked, propagated from GCC command line):
+    gcc solution.c -fPIC -Wl,-rpath=. -ldl -o solution
+    // -Wl - pass to linker  (no space between this and following)
+    // -rpath=. - search shared libraries in the current dir
     
+

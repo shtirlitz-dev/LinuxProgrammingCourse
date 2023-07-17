@@ -40,3 +40,6 @@ utility c++filt to show the original function names in C++
 
 see C++ names
     nm -gC libHelloCpp.so
+    
+what modules are used? (needs "export LD_LIBRARY_PATH=." too)
+    ldd hello

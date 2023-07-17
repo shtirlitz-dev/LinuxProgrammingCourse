@@ -7,4 +7,5 @@ lib: hello.c hello.h
 	gcc -o libHello.so -shared hello.c
 
 clean:
-	-rm libHello.so hello_exe
+	-rm libHello.so hello_exe 2>/dev/null
+

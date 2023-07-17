@@ -43,3 +43,15 @@ see C++ names
     
 what modules are used? (needs "export LD_LIBRARY_PATH=." too)
     ldd hello
+    
+    
+    
+# dynamic linking 
+
+    dlopen(file, RTLD_LAZY);
+    dlsym(handle, func_name);
+    
+flag to compile: -ldl (it was OK without it)
+    gcc main_dyn.c -ldl -o maind
+    
+    

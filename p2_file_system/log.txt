@@ -13,3 +13,45 @@ dir functions
     opendir
     fdopendir
     readdir
+
+about file (command line):
+    stat filelname
+
+hard link - adds another name to the data, both names are equivalent (file types)
+data removed when the last hardlinked file is removed:
+    ln existing hardlinked  => the same inode (see with stat)
+
+soft link refers the file by name, it's a separate file of link type.
+if the original file is removed, the link is broken. if a new file is created 
+with the same name, the soft link file refers the new one
+    ln -s existing softlinked  => ll shows softlinked -> existing
+
+open link programmically
+    __O_NOFOLLOW doesn't help
+    O_PATH - see 'man 2 open'
+
+list files with inode
+    ls -lai
+
+
+dependencies:
+    ldd your_module
+
+    ltrace - trace calls
+    strace - trace system calls
+
+procfs - driver for processes in core
+
+all mount points in FS 
+    mount
+
+id of the current bash process:
+    echo $$
+
+    pwd   => /proc/3709  - current directory 
+    ls -la cwd   => lrwxrwxrwx 1 vsevolod vsevolod 0 Jul 18 19:29 cwd -> /proc/3709
+    cat environ => environment variables
+    cat limits
+
+information about processors
+    cat /proc/cpuinfo

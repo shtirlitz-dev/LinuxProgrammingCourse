@@ -1,0 +1,15 @@
+file functions
+    open
+    creat
+    read
+    write
+    close
+
+dir structures
+    DIR
+    struct dirent
+
+dir functions
+    opendir
+    fdopendir
+    readdir

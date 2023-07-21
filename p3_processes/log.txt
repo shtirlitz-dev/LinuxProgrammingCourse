@@ -1,0 +1,52 @@
+create processes:
+old way fork/exec()
+new way clone()
+
+fork = exac copy
+exec = replaces the image of the processes
+
+---fork---
+new process: new pid, ppid,
+not inherited: memory locks, waiting signal list, timers
+
+return value: new id, child receives 0
+
+? -> man fork
+
+--exec---
+several functions
+
+man 2 execve
+
+--run a new process--
+
+pid_t pid = fork();
+// pid = 0 for child
+if(pid == 0) {
+    // this is child
+    exec("new process image")
+    exit 0;
+}
+else {
+    // parent
+    waitpid(pid);
+}
+
+-- wait--
+man wait
+
+waitpid, waitpid
+
+--clone--
+process context:
+- open files
+- file systems (mount)
+- I/O operation
+- net environment
+- process identifiers
+- memory
+- registers
+- hostname
+
+'clone' enables to share or separate process resources
+flags: CLONE_FS etc

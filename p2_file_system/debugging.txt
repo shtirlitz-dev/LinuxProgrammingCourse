@@ -1,0 +1,63 @@
+syslog (? - function or what?)
+gdb - debugger
+
+gcc command line arguments - debug info and optimization
+    gcc -g0 .. -g3 debug information levels 3- max debug info
+    gcc -o9 .. -o3 optimization level 0 - none, 3 max optimization
+    gcc -ggdb - debug info for gdb (not very useful)
+
+create core dump (before the program crashes)
+	ulimit -c unlimited
+
+start gdb
+    gdb ./exe - start
+    gdb ./exe -c core - starting withj core dump
+    gdb ./exe -pid process_id - attach to a running process
+
+gdb console commands
+
+    help
+    info
+    -args
+    -breakpoints
+    -watchpoints
+    -registers
+    -threads
+    -signals
+
+    where
+    r/run (command line arguments) 
+    c/continue
+    continue breakpoints_number
+    finish 
+    kill
+    q/quit
+    step (into a function)
+    next (next line of code)
+    until linenumber
+    stepi/nexti for assembler instruction
+
+    break function/line
+    break + or - number of lines (e.g. +5 -2)
+    break filename:line/function
+    break *instruction_address
+    break ... if condition
+    break line thread tid
+    clear
+    enable/disable - for breakpoints
+    watch condition
+
+call stack:
+    bt/backtrace  - shows call stack
+    f/frame [number]
+    backtrace full
+    up/down number
+    info frame
+
+source and variables:
+    list [+n | -n]
+    set listsize num
+    list start,end
+    p/print variable
+    p/[format] variable (x,o,d,f,c...)
+

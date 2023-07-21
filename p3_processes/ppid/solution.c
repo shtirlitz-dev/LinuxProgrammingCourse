@@ -14,6 +14,7 @@ int main()
     int f = open(filename, O_RDONLY);
     char bfr[201];
     size_t r = read(f, bfr, 200);
+    bfr[r] = 0;
     close(f);
     const char* ppidpos = strstr(bfr, "PPid:");
     int ppid;

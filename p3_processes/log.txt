@@ -1,3 +1,12 @@
+pstree    - process tree
+pstree -p - with process ids
+./somecommand & - in background
+
+exit code of a process is saved in a structure in OS until the parent asks for it
+
+if parent process is destroyed, the parent is init[pid=1]
+
+
 create processes:
 old way fork/exec()
 new way clone()

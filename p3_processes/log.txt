@@ -69,6 +69,7 @@ flags:
 - close files stdio - close(stdin), close(stdout), close(stderr)
 
 
+also "man daemon"
 
 
 

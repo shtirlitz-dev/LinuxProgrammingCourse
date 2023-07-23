@@ -49,4 +49,17 @@ process context:
 - hostname
 
 'clone' enables to share or separate process resources
-flags: CLONE_FS etc
+flags:
+    CLONE_FS etc
+    CLONE_PARENT - set parent as the current parent (otherwise the current process is parent)
+
+--daemons--
+- fork, then in the deamon
+- goto root directory '/' not to block file systems
+- set session identificator setsid (2)
+- close files stdio - close(stdin), close(stdout), close(stderr)
+
+
+
+
+

@@ -1,0 +1,60 @@
+# ICP
+
+- files
+- signals
+- pipes (named, anonymous)
+- message queues (mq_open, mq_send, ...)
+- shared memory
+- sockets
+- posix-semafores
+- rpc (man rps)
+- ipc (system v)
+
+# pipes:
+
+a pipe creates 2 file descriptors, only 1 direction
+fork makes a child
+parent closes read end, child closes write end
+
+parent ---> pipe ---> child
+
+function pipe (man 2 pipe - has an example)
+
+popen - enables to read output from commands that are usually used from console
+
+
+named pipes:
+mkfifo (man 3)
+
+
+# signals
+
+every process has signal handlers (e.g. Ctrl+C)
+signal has just a number
+some handlers can be overriden, some cannot (e.g. signal 9)
+
+<signal.h>
+
+SIGINT - 2 to terminate
+SIGABRT - 6 = abort (man 3)
+SIGTERM - 15 = can you terminate
+SIGKILL - 9 = kill 
+SIGCHLD - 17 = termination of a child (see function wait...)
+SIFUSR = user signals
+
+daemons define set of signals
+
+send a signal: function kill (man 2) or utility kill (man 1)
+	kill -l => list
+	
+kill(pid,signum) - send
+signal(signum, sighandler_t) - set handler, returns old handler
+SIGSTOP, SIGKILL cannot be set
+
+
+
+
+
+
+
+

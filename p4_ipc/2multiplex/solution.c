@@ -38,6 +38,10 @@ int main(int argc, char **argv) {
 
         int max_fd = (fd1 > fd2) ? fd1 : fd2;
         int ready_fds = select(max_fd + 1, &read_fds, NULL, NULL, &timeout);
+
+        // select doesn't return when a pipe is closed
+        // I assuming that the test don't make a big pause between sending digits
+        // so, if timeout is reached, this should mean the test is ended.
         if(!ready_fds)
             break;
 

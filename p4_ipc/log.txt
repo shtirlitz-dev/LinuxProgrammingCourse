@@ -52,7 +52,49 @@ signal(signum, sighandler_t) - set handler, returns old handler
 SIGSTOP, SIGKILL cannot be set
 
 
+# address space
 
+upper addresses FFFFFFFF... and down
+core
+stack
+
+shared memory (shared libraries and shared memory)
+
+heap
+data
+code
+
+
+function:
+shmget - create or get a memory region
+shmat - attach to a region
+shmdt - detach
+shmctl - control
+
+shmget - mem size rounded to page size
+
+utility ipcs shows shared memory segments and other IPC things.
+	ipcs -m = only memory
+	
+# multiplexing
+
+we have files with descriptors 0 (stdin), 1 (stdout), 2 (stderr) and other that we opened using fd = open(...)
+set of file descriptors: every fd is projected to a bit
+
+df_set watch_list;  // fd_set is type with bits projected to descriptors
+
+macros:
+
+FD_ZERO(&watch_list); // zero all
+FD_SET(fd, &watch_list); // set bit for file descriptor
+FD_CLR(fd, &watch_list); // reset bit for file descriptor
+
+int select(count, fd_set_read, fd_set_write, fd_set_except, timeout)
+returns number of ready files
+to know who is ready: FD_ISSET(fd, &watch_list);
+
+command line for creatin named pipe:
+mkfifo f1.fifo => creates a pipe which can be opened with int fd = open("f1.fifo", O_RDONLY)
 
 
 

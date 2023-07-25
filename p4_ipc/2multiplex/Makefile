@@ -1,3 +1,3 @@
-lib: solution.c
+exe: solution.c
 	gcc solution.c -o solution
 

@@ -81,7 +81,7 @@ utility ipcs shows shared memory segments and other IPC things.
 we have files with descriptors 0 (stdin), 1 (stdout), 2 (stderr) and other that we opened using fd = open(...)
 set of file descriptors: every fd is projected to a bit
 
-df_set watch_list;  // fd_set is type with bits projected to descriptors
+fd_set watch_list;  // fd_set is type with bits projected to descriptors
 
 macros:
 

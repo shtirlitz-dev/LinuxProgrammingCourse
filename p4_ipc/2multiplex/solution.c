@@ -6,15 +6,16 @@
 #include <fcntl.h>
 
 
-void update_sum(int fd, int* sum)
+int update_sum(int fd, int* sum)
 {
     char bfr[80];
     int n = read(fd, bfr, sizeof(bfr) -1);
     if(n <= 0)
-        return;
+        return 0;
     bfr[n] = 0;
     n = atoi(bfr);
     *sum += n;
+    return 1;
 }
 
 int main(int argc, char **argv) {
@@ -42,12 +43,14 @@ int main(int argc, char **argv) {
         int ready_fds = select(max_fd + 1, &read_fds, NULL, NULL, &timeout);
 
         if (FD_ISSET(fd1, &read_fds)) {
-            update_sum(fd1, &sum);
+            if(!update_sum(fd1, &sum))
+                ok1 = 0;
         }
         if (FD_ISSET(fd2, &read_fds)) {
-            update_sum(fd2, &sum);
+            if(!update_sum(fd2, &sum))
+                ok2 = 0;
         }
-            
+            /*
         if(ok1) {
             int fd3 = open("in1", O_RDWR); // | O_NONBLOCK);
             if(fd3 != -1)
@@ -62,6 +65,7 @@ int main(int argc, char **argv) {
             else
                 ok2 = 0;
         }
+        */
     }
 
     printf("%d\n", sum);

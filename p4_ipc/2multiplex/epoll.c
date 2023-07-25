@@ -24,7 +24,7 @@ void addEvent(int epfd, char * filename ) {
 }
 
 int main() {
-    int in1_fd, in2_fd, epfd;
+    int epfd, i;
     struct epoll_event event, events[MAX_EVENTS];
     char buffer[MAX_BUF_SIZE];
     int chCount = 2;
@@ -48,7 +48,7 @@ int main() {
             exit(EXIT_FAILURE);
         }
 
-        for (int i = 0; i < num_events; i++) {
+        for (i = 0; i < num_events; i++) {
             int fd = events[i].data.fd;
 
             ssize_t bytes_read = read(fd, buffer, sizeof(buffer));

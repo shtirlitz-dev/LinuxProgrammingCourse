@@ -7,12 +7,12 @@ int sig1 = 0, sig2 = 0;
 
 void handlerUsr1(int signo)
 {
-    printf("Called with %d\n", signo);
+    //printf("Called with %d\n", signo);
     sig1++;
 }
 void handlerUsr2(int signo)
 {
-    printf("Called with %d\n", signo);
+    //printf("Called with %d\n", signo);
     sig2++;
 }
 void my_sig_handler(int signo)

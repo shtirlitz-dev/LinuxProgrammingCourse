@@ -6,14 +6,19 @@
 
 #define MAX_BUF_SIZE 100
 
+
+//
+// It doesn't work :(
+//
+
 int main() {
     int i;
     struct pollfd fds[2];
     char buffer[MAX_BUF_SIZE];
 
     // Open the input channels in non-blocking mode
-    fds[0].fd = open("in1", O_RDWR);
-    fds[1].fd = open("in2", O_RDWR);
+    fds[0].fd = open("in1", O_RDONLY);
+    fds[1].fd = open("in2", O_RDONLY);
 
     if (fds[0].fd == -1 || fds[1].fd == -1) {
         perror("open");

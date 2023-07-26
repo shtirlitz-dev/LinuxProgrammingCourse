@@ -27,8 +27,8 @@ void my_sig_handler(int signo)
 int main(int argc, char **argv) {
     signal(SIGPIPE, my_sig_handler);
 
-    int fd1 = open("in1", O_RDWR); // | O_NONBLOCK);
-    int fd2 = open("in2", O_RDWR); // | O_NONBLOCK);
+    int fd1 = open("in1", O_RDONLY);
+    int fd2 = open("in2", O_RDONLY);
     if (fd1 < 0 || fd2 < 0) 
         return EXIT_FAILURE;
 

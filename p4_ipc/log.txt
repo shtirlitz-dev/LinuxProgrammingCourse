@@ -45,7 +45,8 @@ SIFUSR = user signals
 daemons define set of signals
 
 send a signal: function kill (man 2) or utility kill (man 1)
-	kill -l => list
+	kill -l              => list
+	pkill solution -USR1 => send a signal to a process by name
 	
 kill(pid,signum) - send
 signal(signum, sighandler_t) - set handler, returns old handler

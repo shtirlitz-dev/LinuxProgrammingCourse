@@ -77,6 +77,9 @@ shmget - mem size rounded to page size
 utility ipcs shows shared memory segments and other IPC things.
 	ipcs -m = only memory
 	
+
+examples: https://users.cs.cf.ac.uk/Dave.Marshall/C/node27.html#SECTION002730000000000000000
+	
 # multiplexing
 
 we have files with descriptors 0 (stdin), 1 (stdout), 2 (stderr) and other that we opened using fd = open(...)

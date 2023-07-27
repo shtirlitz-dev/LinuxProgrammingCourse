@@ -1,0 +1,91 @@
+RFC 1122
+
+tcp/ip stack
+
+Application - protocols
+Transport layer TCP UDP
+IP - internet layer  
+    ICMP - internet control message protocol (ping etc),
+    ARP - address resolution protocol
+	RARP - reverse -- // --
+Link layer - MAC addresses (Media access control)
+
+
+OSI model
+1. Physical
+2. Data link (how to find a device and transmit data)
+--
+3. Net level = IP - net architecture
+--
+4. Transport
+5. session level
+--
+6. Presentation level
+7. Application
+
+Sockets:
+address
+transport
+IO
+
+IP addresses
+Mask: 1 - net number
+      0 - node number
+IP address 192.168.13.5
+mask       255.255.255.0
+-> net number 192.168.13.0 and node number 0.0.0.5
+
+alternative: 192.168.13.5/24  - 24 bits for net number
+
+example:
+
+Comp1 192.10.5.8  255.255.0.0
+Comp2 192.10.5.5  255.255.0.0  and  10.10.1.1/24         - router, and gateway for 1 and 3
+Comp3                               10.10.1.5  255.255.255.0
+       net 192.10.0.0                net 10.10.1.0
+
+
+
+Interaction between nodes
+
+1. Unicast - directly one-to-one
+2. Multicast - one-to-group, one receiver can
+3. Broadcast - one-to-everybody
+
+# TCP, UDP
+
+(C)lient and (S)erver
+UDP:
+socket, bind to address:port - on client and on server side
+then sendto -> recvfrom C->S or S->C
+
+no warranty that the data is delivered.
+
+TCP
+socket         C, S
+bind IP:port   C, S
+
+listen         S
+connect        C
+accept         S -> new socket
+---- connected ----
+send, recv     C, S
+
+
+# address resolver 
+
+function gethostbyname
+
+
+# help:
+
+man inet 
+
+address to test inet_ntoa
+text to address inet_aton
+
+man 7 ip
+sockaddr_in
+
+
+

@@ -87,5 +87,19 @@ text to address inet_aton
 man 7 ip
 sockaddr_in
 
+debugging net
 
+netstat
+netcat    nc  (man nc)
+netcat -l = server regime (listen)
+netcat server:port = client
 
+example:
+  nc 3000 -l = listen on port 3000
+  nc localhost 3000 = client
+  
+  nc -u 3000 -l = UDP
+  
+see connection on port 3000
+  netstat -anp | grep 3000
+  

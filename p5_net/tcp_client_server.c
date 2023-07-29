@@ -31,7 +31,7 @@ void client()
     connect(s, (struct sockaddr*)&local, sizeof(local));
 
     char buf[BUFSIZ] = "Hello\n";
-    write(s, buf, strlen(buf + 1));
+    write(s, buf, strlen(buf) + 1);
     close(s);
 }
 

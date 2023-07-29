@@ -1,0 +1,12 @@
+man 3 getopt
+
+see example:
+long names, one char names
+
+one char names can be united -q -v => -qv
+
+there are optional arguments
+optional arguments without parameters
+                   with optional parameters
+                   with mandatory parameters
+

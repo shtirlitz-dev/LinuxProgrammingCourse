@@ -103,3 +103,30 @@ example:
 see connection on port 3000
   netstat -anp | grep 3000
   
+
+# common notes
+
+use for understanding:
+  $man man
+  $man apropos
+  $man whatis
+
+GNU make:
+  https://rus-linux.net/nlib.php?name=/MyLDP/algol/gnu_make/gnu_make_3-79_russian_manual.html
+
+vim:
+  https://ru.wikibooks.org/wiki/Vim
+
+IBM linux
+  https://developer.ibm.com/technologies/linux/
+
+Linux first steps
+  https://firststeps.ru/linux/
+
+Linux library
+  https://www.linuxlib.ru/
+
+Configure net
+  https://www.youtube.com/watch?v=oVCrpOznlrE
+
+

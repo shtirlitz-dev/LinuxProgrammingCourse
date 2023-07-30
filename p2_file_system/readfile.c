@@ -9,7 +9,7 @@ int main(int argc, char ** argv)
         printf("use with argument\n");
         return 1;
     }
-    int fd = open(argv[1], O_RDONLY | __O_PATH);
+    int fd = open(argv[1], O_RDONLY | __O_PATH); // O_SEARCH for Mac
     perror("fd");
     printf("fd = %d\n", fd);
 

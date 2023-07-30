@@ -21,7 +21,15 @@ int child(void* params)
 int main()
 {
     int c = 0;
+#ifdef __linux__
     int result = clone(child, child_stack + STACK_SIZE, 0, 0);
+#elif defined( __APPLE__ )
+    int result = fork();
+    if(!result)
+        return child(0);
+#else
+    #error "Unsupported platform: This code requires Linux or macOS."
+#endif
     printf("clone result = %d\n", result);
 
     while(true)
